@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% block title %} Fill the poll {% endblock %}</h2>
+<form method="post">
+
+    <label for="What is your username?"></label>
+    <br>
+    <input type="text" name="username" placeholder="Title" value="{{ request.form.username }}"></input>
+    <br>
+
+    <label for="What is your age?"></label>
+    <br>
+    <input type="text" name="age" placeholder="Age" value="{{ request.form.age}}"></input>
+    <br>
+
+    <label for="What is your city?"></label>
+    <br>
+    <input type="text" name="city" placeholder="City" value="{{ request.form.city }}"></input>
+    <br>
+
+    <label for="What is your country?"></label>
+    <br>
+    <input type="text" name="country" placeholder="Country" value="{{ request.form.country }}"></input>
+    <br>
+
+
+
+    <button type="submit">Submit</button>
+</form>
+<div class=''>
+    <p>Enter a title and a message to create a new message.</p>
+</div>
+
+{% endblock %}
