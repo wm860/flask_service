@@ -30,10 +30,13 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    if request.method == "GET":
+        return render_template("register.html")
 
+    if request.method == "POST":
+        return redirect(url_for("index"))
 
 if __name__ == "__main__":
     Db_start()
