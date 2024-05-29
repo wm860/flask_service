@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 from models import Db_start, Db_service
+import json
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = '87dc78b17b20d8d22b7850529c3815622f949339bfbfc33c'
@@ -22,7 +23,12 @@ def poll():
         country = request.form["country"]
         print(username)
         Db_service().add_record_to_poll(username, age, city, country)
-        return redirect(url_for("index"))
+        return redirect(url_for("results"))
+
+@app.route("/results")
+def results():
+    data = Db_service().get_last_record_from_poll()
+    return render_template("results.html", data=data)
 
 
 @app.route("/login")

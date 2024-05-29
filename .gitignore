@@ -2,3 +2,7 @@ venv
 .venv
 .idea
 __pycache__
+app2_flask.py
+models2.py
+db.py
+data.json
